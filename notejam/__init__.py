@@ -1,7 +1,10 @@
+import os
+import urllib.parse 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_bcrypt import Bcrypt
 from notejam.config import (
     Config,
     DevelopmentConfig,
@@ -18,8 +21,10 @@ from_env = {'production': ProductionConfig,
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config.from_object(from_env[os.environ.get('ENVIRONMENT', 'testing')])
+params = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=notejamapp.database.windows.net;DATABASE=notejamappdb;UID=notejamadmin@notejamapp;PWD=123Welcome$;")
+app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 db = SQLAlchemy(app)
-
 
 @app.before_first_request
 def create_tables():

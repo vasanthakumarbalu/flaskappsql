@@ -1,4 +1,3 @@
-import os
 import urllib.parse 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy

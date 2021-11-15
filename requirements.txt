@@ -16,6 +16,6 @@ ipython==0.13.1
 sqlalchemy-migrate==0.7.2
 virtualenv==16.3.0
 Cython==0.29.15
-pip==20.0.2
+pip==21.1
 pymssql==2.1.4
 pyodbc==4.0.30b1

@@ -12,7 +12,7 @@ WTForms==2.1
 Werkzeug==0.14.1
 blinker==1.4
 decorator==3.4.0
-ipython==0.13.1
+ipython==7.16.3
 sqlalchemy-migrate==0.7.2
 virtualenv==16.3.0
 Cython==0.29.15
